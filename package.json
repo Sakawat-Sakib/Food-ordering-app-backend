@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "nodemon",
-    "build" : "npm install && npx tsc",
-    "start" : "node dist/index.js"
+    "dev": "concurrently \"nodemon\" \"npm run stripe\"",
+    "stripe": "stripe listen --api-key sk_test_51PcixVGVUxiqf59Fqt5bCK4EQsmoYMGbSuJnZ2JDol2nu5YMkpxN386RkubvaI77uT7MInDDa5troKfIVZXErYSp00whD0Hj3x --forward-to localhost:8000/api/order/checkout/webhook",
+    "build": "npm install && npx tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,10 @@
   "dependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.7.9",
+    "cloudinary": "^2.5.1",
+    "concurrently": "^9.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
@@ -23,7 +27,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.7",
+    "stripe": "^17.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
