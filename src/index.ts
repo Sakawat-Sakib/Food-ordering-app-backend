@@ -26,7 +26,7 @@ app.use("/api/order/checkout/webhook", express.raw({type: "*/*"})) // this for s
 app.use(express.json()) // this need to be here
 
 
-app.use("/health", (req:Request, res: Response)=>{
+app.get("/health", (req:Request, res:Response)=>{
     res.send({message: "Health ok!"})
 })
 
