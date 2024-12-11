@@ -8,6 +8,7 @@ import myRestaurantRoute from './routes/MyRestaurantRoute'
 import restaurantRoute from './routes/RestaurantRoute'
 import orderRoute from './routes/OrderRoutes'
 
+const PORT = process.env.PORT || 8000;
 mongoose.connect(process.env.DATABASE_URL as string).then(()=>{
     console.log("connected to database")
 })
@@ -35,6 +36,6 @@ app.use("/api/my/restaurant", myRestaurantRoute)
 app.use("/api/restaurant",restaurantRoute)
 app.use("/api/order",orderRoute)
 
-app.listen(8000,()=>{
+app.listen(PORT,()=>{
     console.log("Server Started")
 })
